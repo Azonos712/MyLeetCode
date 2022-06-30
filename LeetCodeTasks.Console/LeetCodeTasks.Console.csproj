@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LeetCodeTasks.Solutions\LeetCodeTasks.Solutions.csproj" />
+  </ItemGroup>
+
 </Project>

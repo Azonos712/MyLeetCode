@@ -7,9 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="1.Easy\" />
-    <Folder Include="2.Medium\" />
-    <Folder Include="3.Hard\" />
+    <Folder Include="2_Medium\" />
+    <Folder Include="3_Hard\" />
   </ItemGroup>
 
 </Project>

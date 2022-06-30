@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeetCodeTasks.Solutions
+﻿namespace LeetCodeTasks.Solutions
 {
-    public interface ILeetCodeTask
+    public interface ILeetCodeTask<Tout>
     {
-        void Invoke();
+        Tout Invoke();
     }
 }
