@@ -1,5 +1,6 @@
 ﻿using LeetCodeTasks.Solutions;
 using LeetCodeTasks.Solutions._1_Easy;
+using LeetCodeTasks.Solutions._2_Medium;
 using System;
 
 namespace LeetCodeTasks.Console
@@ -8,7 +9,7 @@ namespace LeetCodeTasks.Console
     {
         static void Main(string[] args)
         {
-            ILeetCodeTask<int> task = new Task1710();
+            ILeetCodeTask<int> task = new Task1465();
             var result = task.Invoke();
             System.Console.WriteLine(string.Join(',', result));
         }
