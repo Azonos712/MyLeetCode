@@ -9,7 +9,7 @@ namespace LeetCodeTasks.Console
     {
         static void Main(string[] args)
         {
-            ILeetCodeTask<int> task = new Task1465();
+            ILeetCodeTask<int> task = new Task376();
             var result = task.Invoke();
             System.Console.WriteLine(string.Join(',', result));
         }
