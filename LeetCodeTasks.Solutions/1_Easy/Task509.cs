@@ -14,7 +14,7 @@ namespace LeetCodeTasks.Solutions._1_Easy
         }
 
         /// <summary>
-        /// O(2^n) / Memory: O(n)
+        /// Time: O(2^n) / Memory: O(n)
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>

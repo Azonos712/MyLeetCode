@@ -18,7 +18,7 @@ namespace LeetCodeTasks.Solutions._2_Medium
         }
 
         /// <summary>
-        /// O(n) / Memory: O(n) | Not my solution | We can use Hashset instead Dictionary
+        /// Time: O(n) / Memory: O(n) | Not my solution | We can use Hashset instead Dictionary
         /// </summary>
         /// <param name="nums"></param>
         /// <returns></returns>
