@@ -13,38 +13,16 @@ namespace LeetCodeTasks.Solutions._2_Medium
         //string[] s = new string[] { "", "", "a" }; // false
         //string[] s = new string[] { "", "b", "b" }; // true
         //string[] s = new string[] { "a", "b", "a" }; // false
-        string[] s = new string[] { "aa", "ab", "aaba" }; // false
+        //string[] s = new string[] { "aa", "ab", "aaba" }; // true
+        string[] s = new string[] { "ab", "bc", "bbac" }; // true
 
         public bool Invoke()
         {
             return IsInterleave(s[0], s[1], s[2]);
         }
 
-        private bool CheckSubString(ref string source, ref string sub)
-        {
-            for (int i = 0; i < sub.Length; i++)
-            {
-                if (i + 1 == sub.Length && source[i] == sub[i])
-                {
-                    source = source.Substring(i + 1);
-                    sub = sub.Substring(i + 1);
-                    return true;
-                }
-
-                if (source[i] != sub[i])
-                {
-                    if (i == 0)
-                        return false;
-                    source = source.Substring(i);
-                    sub = sub.Substring(i);
-                    return true;
-                }
-            }
-            return false;
-        }
-
         /// <summary>
-        /// Don`t work
+        /// Time: O(n*m) / Memory: O(n*m)
         /// </summary>
         /// <param name="s1"></param>
         /// <param name="s2"></param>
@@ -55,27 +33,80 @@ namespace LeetCodeTasks.Solutions._2_Medium
             if (s1.Length + s2.Length != s3.Length)
                 return false;
 
-            while (s3.Length != 0)
+            var grid = new bool?[s1.Length + 2, s2.Length + 2];
+            for (int i = 0; i < grid.GetLength(1); i++)
+                grid[grid.GetLength(0) - 1, i] = false;
+            for (int i = 0; i < grid.GetLength(0); i++)
+                grid[i, grid.GetLength(1) - 1] = false;
+
+            int p1 = 0;
+            int p2 = 0;
+            grid[p1, p2] = true;
+            bool isNewLine = false;
+            while (true)
             {
-                bool first = CheckSubString(ref s3, ref s1);
+                if (p1 == s1.Length && p2 == s2.Length)
+                    return grid[p1, p2].Value;
 
-                if (first && s3.Length == 0 && s2.Length != 0)
+                if (grid[p1 + 1, p2] == false && grid[p1, p2 + 1] == false)
+                    grid[p1, p2] = false;
+
+                if (p1 == 0 && p2 == 0 && grid[p1, p2] == false)
                     return false;
 
-                if (first && s3.Length == 0)
-                    return true;
+                if (grid[p1, p2] == true)
+                {
+                    if (grid[p1 + 1, p2] == false)
+                    {
+                        p2++;
+                        isNewLine = true;
+                    }
+                    else
+                        p1++;
+                }
+                else if (grid[p1, p2] == false && p1 > 0 && grid[p1 - 1, p2] == true)
+                {
+                    p1--;
+                }
+                else
+                {
+                    p2--;
+                }
 
-                bool second = CheckSubString(ref s3, ref s2);
+                if (grid[p1, p2] == null)
+                {
+                    if (!isNewLine)
+                    {
+                        if (s1[p1 - 1] == s3[p1 + p2 - 1])
+                        {
+                            grid[p1, p2] = true;
+                            continue;
+                        }
+                        else
+                        {
+                            grid[p1, p2] = false;
+                            continue;
+                        }
+                    }
 
-                if (s3.Length == 0)
-                    return first || second;
+                    isNewLine = false;
 
-                if (first != true || second != true)
-                    return false;
+                    if (s2[p2 - 1] == s3[p1 + p2 - 1])
+                    {
+                        grid[p1, p2] = true;
+                        continue;
+                    }
+                    else
+                    {
+                        grid[p1, p2] = false;
+                        p2--;
+                        continue;
+                    }
+                }
             }
 
-            return true;
 
+            return true;
         }
 
     }
