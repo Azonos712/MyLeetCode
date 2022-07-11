@@ -3,6 +3,7 @@ using LeetCodeTasks.Solutions._1_Easy;
 using LeetCodeTasks.Solutions._2_Medium;
 using LeetCodeTasks.Solutions._3_Hard;
 using System;
+using static LeetCodeTasks.Solutions._2_Medium.Task2;
 
 namespace LeetCodeTasks.Console
 {
@@ -10,7 +11,7 @@ namespace LeetCodeTasks.Console
     {
         static void Main(string[] args)
         {
-            ILeetCodeTask<IList<int>> task = new Task199();
+            ILeetCodeTask<ListNode> task = new Task2();
             var result = task.Invoke();
             System.Console.WriteLine(string.Join(',', result));
         }
