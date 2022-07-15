@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeetCodeTasks.Solutions.Utility;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -51,18 +52,6 @@ namespace LeetCodeTasks.Solutions._2_Medium
             }
 
             return head;
-        }
-
-        [DebuggerDisplay("Val = {val}, Next = {next}")]
-        public class ListNode
-        {
-            public int val;
-            public ListNode next;
-            public ListNode(int val = 0, ListNode next = null)
-            {
-                this.val = val;
-                this.next = next;
-            }
         }
     }
 }
