@@ -12,9 +12,9 @@ namespace LeetCodeTasks.Console
     {
         static void Main(string[] args)
         {
-            ILeetCodeTask<int[][]> task = new Task733();
+            ILeetCodeTask<int> task = new Task200();
             var result = task.Invoke();
-            //System.Console.WriteLine(string.Join(',', result));
+            System.Console.WriteLine(string.Join(',', result));
         }
     }
 }
