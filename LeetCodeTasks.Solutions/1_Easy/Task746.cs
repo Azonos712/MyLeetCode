@@ -9,10 +9,8 @@ namespace LeetCodeTasks.Solutions._1_Easy
     public class Task746 : ILeetCodeTask<int>
     {
         int[] inputs = { 10, 15, 20 };
-        public int Invoke()
-        {
-            return MinCostClimbingStairs(inputs);
-        }
+
+        public int Invoke() => MinCostClimbingStairs(inputs);
 
         /// <summary>
         /// Time: O(n*k) / Memory: O(n) | Not my solution
@@ -21,16 +19,17 @@ namespace LeetCodeTasks.Solutions._1_Easy
         /// <returns></returns>
         public int MinCostClimbingStairs(int[] cost)
         {
-            var dp = Enumerable.Repeat(int.MaxValue, cost.Length).ToArray();
+            int[] dp = Enumerable.Repeat(int.MaxValue, cost.Length).ToArray();
             dp[0] = cost[0];
             dp[1] = cost[1];
 
-            for (int i = 0; i < cost.Length - 2; i++)
+            for (int i = 0; i < cost.Length - 1; i++)
             {
                 for (int j = i + 1; j < i + 3; j++)
                 {
-                    if (dp[i] + cost[j] <= dp[j])
-                        dp[j] = dp[i] + cost[j];
+                    if (j < cost.Length)
+                        if (dp[i] + cost[j] <= dp[j])
+                            dp[j] = dp[i] + cost[j];
                 }
             }
 
