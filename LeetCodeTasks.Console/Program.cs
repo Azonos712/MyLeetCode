@@ -11,7 +11,7 @@ namespace LeetCodeTasks.Console
     {
         static void Main(string[] args)
         {
-            ILeetCodeTask<int> task = new Task621();
+            ILeetCodeTask<TreeNode> task = new Task226();
             var result = task.Invoke();
             System.Console.WriteLine(string.Join(',', result));
         }
