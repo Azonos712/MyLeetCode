@@ -6,24 +6,15 @@ using System.Threading.Tasks;
 
 namespace LeetCodeTasks.Solutions._1_Easy
 {
-    public class Task1 : ILeetCodeTask<int[]>
+    public class Task1
     {
-        int[] nums = { 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 7, 1, 1, 1, 1, 1 };
-        int target = 11;
-
-        public int[] Invoke()
-        {
-            //return TwoSumSlow(nums, target);
-            return TwoSumFast(nums, target);
-        }
-
         /// <summary>
         /// Time: O(n^2) / Memory: O(1)
         /// </summary>
         /// <param name="nums"></param>
         /// <param name="target"></param>
         /// <returns></returns>
-        private int[] TwoSumSlow(int[] nums, int target)
+        public int[] TwoSumSlow(int[] nums, int target)
         {
             for (int i = 0; i < nums.Length; i++)
             {
@@ -43,7 +34,7 @@ namespace LeetCodeTasks.Solutions._1_Easy
         /// <param name="nums"></param>
         /// <param name="target"></param>
         /// <returns></returns>
-        private int[] TwoSumFast(int[] nums, int target)
+        public int[] TwoSumFast(int[] nums, int target)
         {
             Dictionary<int, int> dict = new Dictionary<int, int>();
             for (int i = 0; i < nums.Length; i++)
