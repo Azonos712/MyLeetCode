@@ -9,18 +9,8 @@ using static LeetCodeTasks.Solutions._2_Medium.Task2;
 
 namespace LeetCodeTasks.Solutions._2_Medium
 {
-    public class Task2 : ILeetCodeTask<ListNode>
+    public class Task2
     {
-        //ListNode l1 = new() { val = 2, next = new() { val = 4, next = new() { val = 3 } } };
-        //ListNode l2 = new() { val = 5, next = new() { val = 6, next = new() { val = 4 } } };
-        ListNode l1 = new() { val = 9, next = new() { val = 9, next = new() { val = 9, next = new() { val = 9, next = new() { val = 9, next = new() { val = 9, next = new() { val = 9 } } } } } } };
-        ListNode l2 = new() { val = 9, next = new() { val = 9, next = new() { val = 9, next = new() { val = 9 } } } };
-
-        public ListNode Invoke()
-        {
-            return AddTwoNumbers(l1, l2);
-        }
-
         public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
         {
             ListNode head = null;
