@@ -16,7 +16,9 @@ namespace LeetCodeTasks.NUnitTests._2_Medium
         [TestCase(new int[] { 9, 9, 9, 9, 9, 9, 9 }, new int[] { 9, 9, 9, 9 }, ExpectedResult = new int[] { 8, 9, 9, 9, 0, 0, 0, 1 })]
         public int[] Test2(int[] l1, int[] l2)
         {
-            return task.AddTwoNumbers(new ListNode(l1), new ListNode(l2)).ToArray();
+            return ListNode.CreateArrayFromList(task.AddTwoNumbers(
+                ListNode.CreateListFromArray(l1),
+                ListNode.CreateListFromArray(l2)));
         }
     }
 }
