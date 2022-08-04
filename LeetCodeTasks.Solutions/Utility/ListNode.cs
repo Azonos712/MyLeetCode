@@ -19,27 +19,33 @@ namespace LeetCodeTasks.Solutions.Utility
             this.next = next;
         }
 
-        public ListNode(params int[] values)
+        public static ListNode CreateListFromArray(params int[] values)
         {
-            ListNode p = this;
+            if (values.Length == 0)
+                return null;
+
+            ListNode node = new ListNode();
+            ListNode start = node;
+
             for (int i = 0; i < values.Length; i++)
             {
-                p.val = values[i];
+                node.val = values[i];
                 if (i + 1 < values.Length)
-                    p.next = new ListNode();
-                p = p.next;
+                    node.next = new ListNode();
+                node = node.next;
             }
+
+            return start;
         }
 
-        public int[] ToArray()
+        public static int[] CreateArrayFromList(ListNode node)
         {
             List<int> list = new();
 
-            ListNode p = this;
-            while (p != null)
+            while (node != null)
             {
-                list.Add(p.val);
-                p = p.next;
+                list.Add(node.val);
+                node = node.next;
             }
 
             return list.ToArray();
